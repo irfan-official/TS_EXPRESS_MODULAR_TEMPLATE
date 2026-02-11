@@ -1,13 +1,16 @@
 import express, { Request, Response } from "express";
 import httpStatus from "http-status";
+import UserRouter from "../modules/user/user.route";
 
 const router = express.Router();
 
-router.get("/", (req: Request, res: Response) => {
-  res.status(httpStatus.OK).json({
-    success: true,
-    code: httpStatus.OK,
-  });
-});
+export const moduleRoutes = [
+  {
+    path: "/users",
+    route: UserRouter,
+  },
+];
+
+moduleRoutes.forEach((route) => router.use(route.path, route.route));
 
 export default router;
