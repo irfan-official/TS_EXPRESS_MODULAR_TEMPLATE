@@ -19,8 +19,8 @@ app.use(cookieParser());
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 
-router.get("/", (req: Request, res: Response) => {
-  res.status(httpStatus.OK).json({
+app.get("/", (req: Request, res: Response) => {
+  return res.status(httpStatus.OK).json({
     success: true,
     code: httpStatus.OK,
     message: "Server is running ...",
@@ -28,6 +28,6 @@ router.get("/", (req: Request, res: Response) => {
   });
 });
 
-app.use(router);
+app.use("/api/v1", router);
 
 export default app;
