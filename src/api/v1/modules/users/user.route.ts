@@ -1,29 +1,22 @@
 import express, { Request, Response } from "express";
 import httpStatus from "http-status";
-
+import validateRequest from "../../middleware/validateRequest";
+import { createUserSchema } from "./user.validation";
 const router = express.Router();
 
 router.get("/", (req: Request, res: Response) => {
   res.status(httpStatus.OK).json({
     success: true,
     code: httpStatus.OK,
-    message: "auth route is working",
+    message: "Hello users",
   });
 });
 
-router.post("/signin", (req: Request, res: Response) => {
+router.get("/test", validateRequest(createUserSchema), (req: Request, res: Response) => {
   res.status(httpStatus.OK).json({
     success: true,
     code: httpStatus.OK,
-    message: "auth is working",
-  });
-});
-
-router.post("/signup", (req: Request, res: Response) => {
-  res.status(httpStatus.OK).json({
-    success: true,
-    code: httpStatus.OK,
-    message: "auth is working",
+    message: "Hello users",
   });
 });
 
