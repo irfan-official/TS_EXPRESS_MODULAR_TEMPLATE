@@ -2,8 +2,8 @@ import express, { Request, Response } from "express";
 import httpStatus from "http-status";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-import router from "./routes";
-import { moduleRoutes } from "./routes";
+import router from "./routes/index";
+
 
 const app = express();
 
@@ -24,10 +24,10 @@ app.get("/", (req: Request, res: Response) => {
     success: true,
     code: httpStatus.OK,
     message: "Server is running ...",
-    availablePath: moduleRoutes,
   });
 });
 
-app.use("/api/v1", router);
+app.use("/api", router);
 
 export default app;
+``

@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express";
 import httpStatus from "http-status";
 import validateRequest from "../../middleware/validateRequest";
-import { createUserSchema } from "./user.validation";
+import { createUserSchema } from "./auth.validation";
 const router = express.Router();
 
 router.get("/", (req: Request, res: Response) => {
