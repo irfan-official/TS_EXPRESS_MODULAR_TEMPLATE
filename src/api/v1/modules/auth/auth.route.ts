@@ -12,12 +12,37 @@ router.get("/", (req: Request, res: Response) => {
   });
 });
 
-router.get("/test", validateRequest(createUserSchema), (req: Request, res: Response) => {
+router.post("/login", (req: Request, res: Response) => {
   res.status(httpStatus.OK).json({
     success: true,
     code: httpStatus.OK,
     message: "Hello users",
   });
 });
+
+router.post("/register", (req: Request, res: Response) => {
+  res.status(httpStatus.OK).json({
+    success: true,
+    code: httpStatus.OK,
+    message: "Hello users",
+  });
+});
+
+router.post("/send/verification-code", (req: Request, res: Response) => {
+  res.status(httpStatus.OK).json({
+    success: true,
+    code: httpStatus.OK,
+    message: "Hello users",
+  });
+});
+
+router.post("/check/verification-code", (req: Request, res: Response) => {
+  res.status(httpStatus.OK).json({
+    success: true,
+    code: httpStatus.OK,
+    message: "Hello users",
+  });
+});
+
 
 export default router;

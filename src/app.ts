@@ -20,8 +20,6 @@ app.use(cookieParser());
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-
 app.get("/", (req: Request, res: Response) => {
   return res.status(httpStatus.OK).json({
     success: true,
@@ -29,6 +27,8 @@ app.get("/", (req: Request, res: Response) => {
     message: "Server is running ...",
   });
 });
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use("/api", router);
 
