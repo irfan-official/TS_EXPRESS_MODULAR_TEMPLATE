@@ -2,7 +2,7 @@
   get:
     summary: Get all users
     tags:
-      - Users
+      - Get all users
     responses:
       200:
         description: List of users
@@ -35,7 +35,7 @@
   post:
     summary: Create a user
     tags:
-      - Users
+      - Create Users
     requestBody:
       required: true
       content:
